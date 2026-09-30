@@ -1,0 +1,7 @@
+model:
+  backbone: gastronet_rn50_dino
+  family: resnet50_dino
+  img_size: 384
+  lora_rank: 0
+train:
+  batch_size: 32

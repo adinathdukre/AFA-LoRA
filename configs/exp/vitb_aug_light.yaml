@@ -1,0 +1,17 @@
+model:
+  backbone: gastronet_dinov2_vitb
+  family: dinov2_vitb
+  img_size: 336
+  lora_rank: 16
+  lora_alpha: 16.0
+train:
+  batch_size: 24
+augmentation:
+  processor_strength: 0.4
+  processor_prob: 0.4
+  specular_prob: 0.15
+  fov_prob: 0.25
+  geometric_prob: 0.3
+  blur_prob: 0.1
+  compression_prob: 0.0
+  histogram_prob: 0.0

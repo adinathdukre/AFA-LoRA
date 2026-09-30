@@ -1,0 +1,7 @@
+model:
+  backbone: gastronet_rn50_mocov2
+  family: resnet50_mocov2
+  img_size: 384
+  lora_rank: 0
+train:
+  batch_size: 32

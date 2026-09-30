@@ -1,0 +1,51 @@
+data:
+  root: /path/to/RARE/labeled
+  manifest: data/manifest.csv
+  num_workers: 16
+  prefetch_factor: 4
+  persistent_workers: true
+
+split:
+  n_folds: 5
+  fold: 0
+  seed: 42
+
+augmentation:
+  processor_strength: 1.0
+  processor_prob: 0.8
+  specular_prob: 0.3
+  fov_prob: 0.5
+  geometric_prob: 0.5
+  blur_prob: 0.2
+  compression_prob: 0.0
+  histogram_prob: 0.0
+  val_processor_strength: 0.5
+
+model:
+  backbone: gastronet_dinov2_vitb
+  family: null
+  img_size: null
+  drop_path_rate: 0.1
+  lora_rank: 0
+  lora_alpha: 16.0
+  prior_pos: 0.051
+
+train:
+  epochs: 25
+  batch_size: 32
+  accumulation_steps: 1
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  head_lr_mult: 10.0
+  grad_clip: 1.0
+  positive_fraction: 0.25
+  ema_decay: 0.999
+  amp: bf16
+  early_stop_patience: 12
+  save_last_k: 3
+  swa_last_k: 3
+  seed: 0
+
+output:
+  dir: runs
+  name: null

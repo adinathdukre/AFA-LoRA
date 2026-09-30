@@ -1,0 +1,8 @@
+model:
+  backbone: gastronet_dinov2_vitb
+  family: dinov2_vitb
+  img_size: 336
+  lora_rank: 16
+  lora_alpha: 16.0
+train:
+  batch_size: 24
