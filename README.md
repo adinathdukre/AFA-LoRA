@@ -10,7 +10,8 @@ alt="Typing SVG"
 style="margin-bottom:-10px; display:block;" />
 </a>
 
-[![RARE 2026](https://img.shields.io/badge/RARE_2026-MICCAI_Challenge-147B82?style=for-the-badge)](#-overview)
+[![RARE 2026](https://img.shields.io/badge/RARE_2026-MICCAI_Challenge-147B82?style=for-the-badge)](https://rare26.grand-challenge.org/)
+[![Rank](https://img.shields.io/badge/Closed_Test-4th_Place-FFB000?style=for-the-badge&logo=trophy)](https://rare26.grand-challenge.org/evaluation/closed-testing-phase/leaderboard/)
 [![Weights](https://img.shields.io/badge/HF-Weights-AECBFA?style=for-the-badge&logo=huggingface&logoColor=FFCC00&labelColor=grey)](https://huggingface.co/adidukre/AFA-LoRA)
 [![GastroNet-5M](https://img.shields.io/badge/Init-GastroNet--5M-8A2BE2?style=for-the-badge)](#-method)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
@@ -25,6 +26,7 @@ style="margin-bottom:-10px; display:block;" />
 </div>
 
 ## 🔥 News
+- **[Oct 2026]** 🏆 AFA-LoRA ranked **4th** on the [RARE 2026 closed testing phase leaderboard](https://rare26.grand-challenge.org/evaluation/closed-testing-phase/leaderboard/), out of about 200 submissions.
 - **[01 Oct 2026]** 🚀 Training code, the Grand Challenge inference container and the released weights for our RARE 2026 submission are public.
 
 ## Overview
