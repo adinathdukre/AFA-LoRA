@@ -4,11 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AFA-LoRA: Amplified Fold-Averaged Low-Rank Adaptation for Barrett&#x27;s Neoplasia Detection</title>
-<meta name="description" content="AFA-LoRA is an ensemble for frame-level detection of neoplasia in Barrett&#x27;s oesophagus, submitted by Team GenMI to the RARE 2026 challenge (MICCAI 2026). It combines 25 binary frame classifiers initialised from the public GastroNet-5M self-supervised checkpoints, applies two weight-space transforms " />
+<meta name="description" content="AFA-LoRA is an ensemble for frame-level detection of neoplasia in Barrett&#x27;s oesophagus, submitted by Team GenMI to the RARE 2026 challenge (MICCAI 2026). It combines 25 binary frame classifiers initialised from the public GastroNet-5M self-supervised checkpoints, applies two weight-space transforms" />
 <meta name="theme-color" content="#147b82" />
 <meta property="og:title" content="AFA-LoRA: Amplified Fold-Averaged Low-Rank Adaptation for Barrett&#x27;s Neoplasia Detection" />
-<meta property="og:description" content="AFA-LoRA is an ensemble for frame-level detection of neoplasia in Barrett&#x27;s oesophagus, submitted by Team GenMI to the RARE 2026 challenge (MICCAI 2026). It combines 25 binary frame classifiers initialised from the public GastroNet-5M self-supervised checkpoints, applies two weight-space transforms " />
+<meta property="og:description" content="AFA-LoRA is an ensemble for frame-level detection of neoplasia in Barrett&#x27;s oesophagus, submitted by Team GenMI to the RARE 2026 challenge (MICCAI 2026). It combines 25 binary frame classifiers initialised from the public GastroNet-5M self-supervised checkpoints, applies two weight-space transforms" />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://raw.githubusercontent.com/genmilab/VGS-Decoding/main/docs/assets/genmilab-logo.png" />
 <meta name="citation_title" content="AFA-LoRA: Amplified Fold-Averaged Low-Rank Adaptation for Barrett&#x27;s Neoplasia Detection" />
 <link rel="icon" href="https://raw.githubusercontent.com/genmilab/VGS-Decoding/main/docs/assets/genmilab-logo.png" />
 <link rel="stylesheet" href="project.css" />
@@ -21,7 +22,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="nav-wrap">
 <a class="brand" href="#top">AFA-LoRA</a>
-<nav aria-label="Main navigation"><a href="#-method">Method</a><a href="#️-installation">Installation</a><a href="#-quick-start">Quick Start</a></nav>
+<nav aria-label="Main navigation"><a href="#abstract">Overview</a><a href="#method">Method</a><a href="#code">Code</a></nav>
 <a class="nav-code" href="https://github.com/adinathdukre/AFA-LoRA">GitHub <span aria-hidden="true">↗</span></a>
 </div></header>
 <main id="main">
@@ -38,24 +39,15 @@
 <div class="resource-links"><a class="button button-primary" href="https://github.com/adinathdukre/AFA-LoRA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-12-2 14"/></svg>Code</a><a class="button button-secondary" href="https://huggingface.co/adidukre/AFA-LoRA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7l8-4 8 4v10l-8 4-8-4zM4 7l8 4 8-4M12 11v10"/></svg>Weights <span aria-hidden="true">↗</span></a></div>
 <div class="hero-meta"><span>RARE 2026 MICCAI Challenge</span><span>Closed Test 4th Place</span></div>
 </section>
-<section class="section container narrow page-section" id="-news"><p class="section-kicker">01 / NEWS</p><h2>News</h2>
-<ul>
-<li><strong>[Oct 2026]</strong> 🏆 AFA-LoRA ranked <strong>4th</strong> on the <a href="https://rare26.grand-challenge.org/evaluation/closed-testing-phase/leaderboard/">RARE 2026 closed testing phase leaderboard</a>, out of about 200 submissions.</li>
-<li><strong>[01 Oct 2026]</strong> 🚀 Training code, the Grand Challenge inference container and the released weights for our RARE 2026 submission are public.</li>
-</ul>
-</section>
-<section class="section container narrow page-section" id="overview"><p class="section-kicker">02 / OVERVIEW</p><h2>Overview</h2>
-<p><strong>AFA-LoRA</strong> is an ensemble for <strong>frame-level detection of neoplasia in Barrett's oesophagus</strong>, submitted by Team GenMI to the <strong>RARE 2026 challenge (MICCAI 2026)</strong>. It combines 25 binary frame classifiers initialised from the public <strong>GastroNet-5M</strong> self-supervised checkpoints, applies two weight-space transforms to the LoRA adapters when they are merged, and fuses the members' logits so that every encoder family has an equal say.</p>
+<section class="section abstract-section" id="abstract"><div class="container narrow"><p class="section-kicker">01 / OVERVIEW</p><h2>Overview</h2><div class="abstract-text"><p><strong>AFA-LoRA</strong> is an ensemble for <strong>frame-level detection of neoplasia in Barrett's oesophagus</strong>, submitted by Team GenMI to the <strong>RARE 2026 challenge (MICCAI 2026)</strong>. It combines 25 binary frame classifiers initialised from the public <strong>GastroNet-5M</strong> self-supervised checkpoints, applies two weight-space transforms to the LoRA adapters when they are merged, and fuses the members' logits so that every encoder family has an equal say.</p>
 <pre class="mermaid">flowchart LR
     A[Endoscopy frame] --&gt; B[25 members&lt;br/&gt;5 runs x 5 folds]
     B --&gt; C[Standardise logit&lt;br/&gt;z - mu / sd]
     C --&gt; D[Average within family&lt;br/&gt;ViT-B, RN50-DINO, RN50-MoCo]
     D --&gt; E[Average across families]
     E --&gt; F[0.5 + arctan x / pi&lt;br/&gt;score in 0, 1]
-</pre>
-</section>
-<section class="section container narrow page-section" id="-method"><p class="section-kicker">03 / METHOD</p><h2>Method</h2>
-<p>Each member is a timm encoder with a linear head on the pooled feature vector.</p>
+</pre></div></div></section>
+<section class="section container narrow page-section" id="method"><p class="section-kicker">02 / METHOD</p><h2>Method</h2><p>Each member is a timm encoder with a linear head on the pooled feature vector.</p>
 <div class="table-scroll" tabindex="0"><table class="paper-table">
 <thead>
 <tr>
@@ -111,16 +103,11 @@
 <li><strong>Fold averaging.</strong> Each run's low-rank delta is replaced by its mean over the five folds. Normalisation layers and the head stay fold-specific.</li>
 </ol>
 <p><strong>Family-balanced logit fusion.</strong> Each member's logit <code>z</code> is standardised as <code>(z - mu) / sd</code>, with <code>mu</code> and <code>sd</code> measured on clean out-of-fold predictions. Standardised logits are averaged within each family, then across the three families, and mapped to (0, 1) by <code>0.5 + arctan(x) / pi</code>.</p>
-<div class="callout callout-tip"><strong>Tip</strong><p>Members are stored round-robin across families, so if the container stops early to meet the time limit, every family still contributes.</p></div>
-</section>
-<section class="section container narrow page-section" id="️-installation"><p class="section-kicker">04 / INSTALLATION</p><h2>Installation</h2>
-<pre><code class="language-bash">git clone https://github.com/adinathdukre/AFA-LoRA
+<div class="callout callout-tip"><strong>Tip</strong><p>Members are stored round-robin across families, so if the container stops early to meet the time limit, every family still contributes.</p></div></section>
+<section class="section container narrow page-section" id="code"><p class="section-kicker">03 / CODE</p><h2>Code and usage</h2><details open><summary>Installation</summary><pre><code class="language-bash">git clone https://github.com/adinathdukre/AFA-LoRA
 cd AFA-LoRA
 pip install -r requirements.txt
-</code></pre>
-</section>
-<section class="section container narrow page-section" id="-quick-start"><p class="section-kicker">05 / QUICK START</p><h2>Quick Start</h2>
-<p>Download the released weights:</p>
+</code></pre></details><details><summary>Quick Start</summary><p>Download the released weights:</p>
 <pre><code class="language-bash">pip install huggingface_hub
 huggingface-cli download adidukre/AFA-LoRA --local-dir /path/to/AFA-LoRA-weights
 </code></pre>
@@ -138,10 +125,7 @@ images = np.zeros((4, 512, 640, 3), dtype=np.uint8)
 scores = ensemble.predict(images, batch_size=32)
 </code></pre>
 <p><code>images</code> is a stack of uint8 RGB frames of shape (N, H, W, 3). Frames are resized to each member's input size without cropping.</p>
-<div class="callout callout-note"><strong>Note</strong><p>The output is a ranking score in (0, 1), not a calibrated probability.</p></div>
-</section>
-<section class="section container narrow page-section" id="-grand-challenge-container"><p class="section-kicker">06 / GRAND CHALLENGE CONTAINER</p><h2>Grand Challenge Container</h2>
-<pre><code class="language-bash">cd submission
+<div class="callout callout-note"><strong>Note</strong><p>The output is a ranking score in (0, 1), not a calibrated probability.</p></div></details><details><summary>Grand Challenge Container</summary><pre><code class="language-bash">cd submission
 MODEL_DIR=/path/to/AFA-LoRA-weights INPUT_DIR=/path/to/test/input ./do_test_run.sh
 MODEL_DIR=/path/to/AFA-LoRA-weights OUT_DIR=/path/to/artifacts ./do_save.sh
 </code></pre>
@@ -166,10 +150,7 @@ MODEL_DIR=/path/to/AFA-LoRA-weights OUT_DIR=/path/to/artifacts ./do_save.sh
 <td>32</td>
 </tr>
 </tbody>
-</table></div>
-</section>
-<section class="section container narrow page-section" id="️-training-from-scratch"><p class="section-kicker">07 / TRAINING FROM SCRATCH</p><h2>Training from Scratch</h2>
-<details open="open">
+</table></div></details><details><summary>Training from Scratch</summary><details open="open">
 <summary><strong>Data and checkpoints</strong></summary>
 <p>The RARE training release is expected as:</p>
 <pre><code class="language-text">/path/to/RARE/labeled/&lt;center&gt;/{ndbe,neo}/*.png
@@ -199,28 +180,10 @@ MODEL_DIR=/path/to/AFA-LoRA-weights OUT_DIR=/path/to/artifacts ./do_save.sh
            runs/resnet50_dino runs/resnet50_mocov2 \
     --out submission/model
 </code></pre>
-<div class="callout callout-important"><strong>Important</strong><p>The order of <code>--runs</code> sets the order of members within a family.</p></div>
-</section>
-<section class="section container narrow page-section" id="-tests"><p class="section-kicker">08 / TESTS</p><h2>Tests</h2>
-<pre><code class="language-bash">python -m pytest tests -q
-</code></pre>
-</section>
-<section class="section container narrow page-section" id="️-repository-layout"><p class="section-kicker">09 / REPOSITORY LAYOUT</p><h2>Repository Layout</h2>
-<pre><code class="language-text">AFA-LoRA/
-├── configs/     # base configuration and one file per training run
-├── rare/        # data, augmentation, model, training loop, metric, LoRA merge
-├── scripts/     # splits, training, clean scoring, export
-├── submission/  # Grand Challenge inference container
-└── tests/       # metric, container parity, LoRA merge and deadline tests
-</code></pre>
-</section>
-<section class="section container narrow page-section" id="-contact"><p class="section-kicker">10 / CONTACT</p><h2>Contact</h2>
-<p>For questions or collaboration, please open an <a href="https://github.com/adinathdukre/AFA-LoRA/issues">issue</a> or reach out to <a href="https://github.com/adinathdukre">Adinath Madhavrao Dukre</a>.</p>
-</section>
-<section class="section container narrow page-section" id="-license"><p class="section-kicker">11 / LICENSE</p><h2>License</h2>
-<p>This project is licensed under the MIT License. See the <a href="https://github.com/adinathdukre/AFA-LoRA/tree/main/LICENSE">LICENSE</a> file for details.</p>
-<div class="callout callout-important"><strong>Important</strong><p>AFA-LoRA is intended for research only. It is not approved for clinical use and must not inform any diagnostic or treatment decision.</p></div>
-</section>
+<div class="callout callout-important"><strong>Important</strong><p>The order of <code>--runs</code> sets the order of members within a family.</p></div></details></section>
+<section class="section container narrow page-section small-section" id="contact"><h3>Contact</h3><p>For questions or collaboration, please open an <a href="https://github.com/adinathdukre/AFA-LoRA/issues">issue</a> or reach out to <a href="https://github.com/adinathdukre">Adinath Madhavrao Dukre</a>.</p></section>
+<section class="section container narrow page-section small-section" id="license"><h3>License</h3><p>This project is licensed under the MIT License. See the <a href="https://github.com/adinathdukre/AFA-LoRA/tree/main/LICENSE">LICENSE</a> file for details.</p>
+<div class="callout callout-important"><strong>Important</strong><p>AFA-LoRA is intended for research only. It is not approved for clinical use and must not inform any diagnostic or treatment decision.</p></div></section>
 </main>
 <footer class="site-footer"><div class="container">
 <a class="lab-footer" href="https://github.com/genmilab" aria-label="GenMI-Lab on GitHub">
