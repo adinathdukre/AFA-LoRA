@@ -11,13 +11,14 @@ style="margin-bottom:-10px; display:block;" />
 </a>
 
 [![RARE 2026](https://img.shields.io/badge/RARE_2026-MICCAI_Challenge-147B82?style=for-the-badge)](https://rare26.grand-challenge.org/)
+[![Project Page](https://img.shields.io/badge/Project-Page-147B82?style=for-the-badge&logo=googlechrome&logoColor=white)](https://adinathdukre.github.io/AFA-LoRA/)
 [![Rank](https://img.shields.io/badge/Closed_Test-4th_Place-FFB000?style=for-the-badge&logo=trophy)](https://rare26.grand-challenge.org/evaluation/closed-testing-phase/leaderboard/)
 [![Weights](https://img.shields.io/badge/HF-Weights-AECBFA?style=for-the-badge&logo=huggingface&logoColor=FFCC00&labelColor=grey)](https://huggingface.co/adidukre/AFA-LoRA)
 [![GastroNet-5M](https://img.shields.io/badge/Init-GastroNet--5M-8A2BE2?style=for-the-badge)](#-method)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fadinathdukre%2FAFA-LoRA&label=Views&countColor=%23147b82&style=for-the-badge)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fadinathdukre%2FAFA-LoRA)
 
-<h3>🤗 <a href="https://huggingface.co/adidukre/AFA-LoRA">Weights</a> &nbsp;|&nbsp; 🧠 <a href="#-method">Method</a> &nbsp;|&nbsp; ⚡ <a href="#-quick-start">Quick Start</a></h3>
+<h3>🌐 <a href="https://adinathdukre.github.io/AFA-LoRA/">Project Page</a> &nbsp;|&nbsp; 🤗 <a href="https://huggingface.co/adidukre/AFA-LoRA">Weights</a> &nbsp;|&nbsp; 🧠 <a href="#-method">Method</a> &nbsp;|&nbsp; ⚡ <a href="#-quick-start">Quick Start</a></h3>
 
 **Team GenMI**
 
